@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>{{ post['title'] }}</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<article>
+  <h1>{{ post['title'] }}</h1>
+  <div class="by">by <a href="/user/{{ post['username'] }}">{{ post['username'] }}</a> — {{ post['created'] }}</div>
+  <div class="body">{{ post['body'] }}</div>
+</article>
+<section>
+  <h2>댓글</h2>
+  {% for c in comments %}
+    <div class="comment"><strong>{{ c['username'] }}</strong>: {{ c['body'] }}</div>
+  {% else %}
+    <p>댓글이 없습니다.</p>
+  {% endfor %}
+  {% if user %}
+  <form method="post">
+    <textarea name="comment" rows="3" placeholder="댓글 작성"></textarea><br>
+    <button>댓글</button>
+  </form>
+  {% else %}
+  <p><a href="/login">로그인</a> 후 댓글 작성 가능</p>
+  {% endif %}
+</section>
+<p><a href="/">목록으로</a></p>
+</body></html>

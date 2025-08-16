@@ -1,0 +1,13 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>검색</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<h1>검색 결과</h1>
+<form action="/search" method="get"><input name="q" value="{{ q }}"><button>검색</button></form>
+<ul>
+{% for r in results %}
+  <li><a href="/post/{{ r['id'] }}">{{ r['title'] }}</a></li>
+{% else %}
+  <li>결과 없음</li>
+{% endfor %}
+</ul>
+<p><a href="/">홈</a></p>
+</body></html>

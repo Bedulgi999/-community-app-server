@@ -1,0 +1,14 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>{{ profile['username'] }} 프로필</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<h1>{{ profile['username'] }}</h1>
+<p>소개: {{ profile['bio'] }}</p>
+<h2>작성글</h2>
+<ul>
+{% for p in posts %}
+  <li><a href="/post/{{ p['id'] }}">{{ p['title'] }}</a> — {{ p['created'] }}</li>
+{% else %}
+  <li>작성한 글이 없습니다.</li>
+{% endfor %}
+</ul>
+<p><a href="/">홈으로</a></p>
+</body></html>
