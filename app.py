@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect, url_for, session, g, send_from_directory, flash
-from flask import Markup
+from markupsafe import Markup
 import sqlite3, os, hashlib, hmac, time, math
 from jinja2 import Template
 from werkzeug.utils import secure_filename
