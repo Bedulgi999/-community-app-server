@@ -3,6 +3,16 @@ from flask import Markup
 import sqlite3, os, hashlib, hmac, time, math
 from jinja2 import Template
 from werkzeug.utils import secure_filename
+import os
+import sqlite3
+from flask import Flask, render_template, request, redirect, url_for, session, g, flash
+
+# DB 초기화 자동 실행 (없으면 init_db.py 실행)
+if not os.path.exists("community.db"):
+    import init_db
+
+app = Flask(__name__)
+app.secret_key = "your_secret_key"
 
 DATABASE = 'community.db'
 SECRET_KEY = os.environ.get('SECRET_KEY','dev-secret-key')
