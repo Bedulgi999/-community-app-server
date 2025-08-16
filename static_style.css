@@ -6,3 +6,6 @@ h1 a { text-decoration:none; color: inherit; }
 .search { margin-top:8px; }
 textarea { width:100%; }
 a { color: #0066cc; }
+@app.route('/static/<path:filename>')
+def static_root(filename):
+    candidate = os.path.join(ROOT,f"static_{filename}")
